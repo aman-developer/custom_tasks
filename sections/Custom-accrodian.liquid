@@ -1,0 +1,61 @@
+<div class="main_div cstm-main-div">
+  <div class="container cstm-accordian-container">
+    <div class="cstm_div">
+      {% if section.settings.heading != blank %}
+     	 <h3 class="cstm_heading">{{ section.settings.heading }}</h3>
+      {% endif %}
+      {% if section.settings.sub_heading != blank %}
+      <h2 class="cstm_heading2">{{ section.settings.sub_heading }}</h2>
+      {% endif %}
+    </div>
+    <div class="faq_div">
+      {% for block in section.blocks %}
+      <div class="faq-parent">
+        <h2 class="faq_qstn">{{ block.settings.qstn }}</h2>
+        <div class="faq_ans">{{ block.settings.answer }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Accordian",
+    "settings": [
+    {
+		"type": "text",
+		"label": "Title",
+		"id": "heading"
+    },
+	{
+		"type": "text",
+		"label": "Heading",
+		"id": "sub_heading"
+	}
+    ],
+	"blocks": [
+      {
+        "type": "faq",
+        "name": "Pricing FAQ",
+        "settings": [
+        {
+          "type": "text",
+          "id": "qstn",
+          "label": "Question"
+        },
+		{
+		  "type": "textarea",
+		  "id" : "answer",
+		  "label": "Answer"
+		}
+        ]
+      }
+	],
+    "presets": [
+    {
+    	"name": "custom-accordian"
+    }
+    ]
+  }
+{% endschema %}

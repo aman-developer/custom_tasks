@@ -1,0 +1,211 @@
+<div class="new-filter-group">
+  <ul id="sort-me">
+
+    {% if settings.sort-dropdown-a-check %} 
+    <li class="clearfix">
+      {% if settings.sort-dropdown-title2 != blank %}
+      <h4><span>{{ settings.sort-dropdown-title2 }}</span></h4> 
+      {% endif %}
+      <div class="scroll-content">
+        {% assign tags = settings.sort_a  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %} 
+        <ul>
+          {% for tag in tags %}
+
+          {% if current_tags contains tag %}
+          <li class="current">{{ tag | link_to_remove_tag: tag  }}</li>
+          {% else collection.all_tags contains tag %}
+          <li>{{ tag | link_to_add_tag: tag }}</li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+
+    {% if settings.sort-dropdown-b-check %}
+    <li class="clearfix">
+      {% if settings.sort-dropdown-title3 != blank %}
+      <h4><span>{{ settings.sort-dropdown-title3 }}</span></h4> 
+      {% endif %}
+      <div class="scroll-content">
+        {% assign tags = settings.sort_b  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}    
+        <ul>
+          {% for tag in tags %}
+          {% if current_tags contains tag %}
+          <li class="current">{{ tag | link_to_remove_tag: tag  }}</li>
+          {% elsif collection.all_tags contains tag %}
+          <li>{{ tag | link_to_add_tag: tag }}</li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+
+    {% if settings.sort-dropdown-c-check %}
+    <li class="clearfix">
+      {% if settings.sort-dropdown-title4 != blank %}
+      <h4><span>{{ settings.sort-dropdown-title4 }}</span></h4> 
+      {% endif %}
+      <div class="scroll-content">
+        {% assign tags = settings.sort_c  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}    
+        <ul>
+          {% for tag in tags %}
+          {% if current_tags contains tag %}
+          <li class="current">{{ tag | link_to_remove_tag: tag  }}</li>
+          {% elsif collection.all_tags contains tag %}
+          <li>{{ tag | link_to_add_tag: tag }}</li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+
+    {% if settings.sort-dropdown-d-check %}
+    <li class="clearfix">
+      {% if settings.sort-dropdown-title5 != blank %}
+      <h4><span>{{ settings.sort-dropdown-title5 }}</span></h4> 
+      {% endif %}
+      <div class="scroll-content">
+        {% assign tags = settings.sort_d  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %}    
+        <ul>
+          {% for tag in tags %}
+          {% if current_tags contains tag %}
+          <li class="current">{{ tag | link_to_remove_tag: tag  }}</li>
+          {% elsif collection.all_tags contains tag %}
+          <li>{{ tag | link_to_add_tag: tag }}</li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+
+  </ul>
+</div>
+<style>
+  .new-filter-group{
+    margin: 20px 0px;
+    float: left;
+    width: 100%; 
+  }
+  .new-filter-group  h4 {
+    padding: 10px 0px;
+    margin: 0;
+    margin-bottom: 10px;
+    color: #222;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    position: relative;
+    text-transform: none;
+  }
+  .new-filter-group h4:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #979ea3;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  .new-filter-group h4 span {
+    background: #FFF;
+    position: relative;
+    z-index: 1;
+    padding: 0px 20px;
+  }
+  .new-filter-group  .scroll-content {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  ul#sort-me { 
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+
+  }
+  ul#sort-me > li
+  {
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+  ul#sort-me > li:last-child{border-bottom:0px;}
+  ul#sort-me li ul {
+    padding: 0;
+    list-style: none;
+  }
+  ul#sort-me > li a{
+    line-height: 20px;
+    padding-left: 0;
+    margin-left: 3px;
+    margin-right: 5px;
+    color: #666666;
+    font-size: 13px;
+    display: inline-block;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    position: relative;
+  }
+
+  ul#sort-me > li .collection-count{
+    color: #666666;
+    font-size: 13px;
+  }
+  ul#sort-me li.clearfix ul li.current a:after {
+    color: transparent;
+    background-color: #e6e6e6
+  }
+  ul#sort-me li.clearfix ul li a.active:before{
+    color: #000;
+  }
+  ul#sort-me li.clearfix ul li a:hover:after{
+    background-color: #e6e6e6;
+  }
+  ul#sort-me li.clearfix ul li a:before {
+    content: "\f00c";
+    font-family: fontAwesome;
+    border: 1px solid #ddd;
+    margin: 0 8px 0 0;
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    padding: 2px;
+    font-size: 10px;
+    color: transparent;
+    background: #FFF;
+    position: relative;
+    top: -2px;
+  } 
+  ul#sort-me li.clearfix ul li a:after {
+    content: "";
+    top: 4px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: absolute;
+  }
+
+  ul#sort-me li.filter ul li {
+    margin: 5px 0;
+  }
+  ul#sort-me li.filter ul li.current a,
+  ul#sort-me > li a.active {
+    font-weight: bold;
+  }
+
+
+</style>
+<!-- <script>
+$(document).ready(function(){
+$('ul#sort-me > li a').each(function(){
+var value = $(this).text();
+$(this).text(value.replace(/\-/g, " "));
+});
+
+});
+</script> -->

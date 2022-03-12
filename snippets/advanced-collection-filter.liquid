@@ -1,0 +1,163 @@
+{% comment %}
+  The code below relies on the advanced-tag-loop snippet.
+  The snippet is already included in snippets/breadrumbs.liquid
+  because it is needed there too, but if you remove
+  breadcrumbs you need to include this:
+{% endcomment %}
+  {% include 'advanced-tag-loop' %}
+
+
+{% if settings.collection_sidebar_filters == 'group' %}
+  {% if collection.all_tags.size > 0 %}
+
+    <div {{cat_array | json}} class="collection-group-filter">
+      {% comment %}
+        Loop through tag categories
+      {% endcomment %}
+      {% for cat_item in cat_array %}
+        <div class="">
+          <h3 class="h3 dot_line_title"><span class="box-title">{{ cat_item }}</span></h3>
+          <ul class="advanced-filters">
+            {% comment %}
+              Loop through collection tags
+            {% endcomment %}
+            {% for tag in collection.all_tags %}
+              {% assign cat = tag | split: '_' | first %}
+              {% if cat != tag and cat_item == cat %}
+                {% comment %}
+                  Strip out tag category prefix and add/remove link for tag filtering
+                {% endcomment %}
+                {% if current_tags contains tag %}
+                  <li class="advanced-filter active-filter" data-group="{{ cat_item }}" data-handle="{{ tag | handle }}">{{ tag | remove_first: cat_item | remove_first: '_' | link_to_remove_tag: tag }}</li>
+                {% else %}
+                  <li class="advanced-filter" data-group="{{ cat_item }}" data-handle="{{ tag | handle }}">{{ tag | remove_first: cat_item | remove_first: '_' | link_to_add_tag: tag }}</li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+
+    <script>
+    $(function() {
+      var filters = $('.advanced-filter'),
+        el,
+        elGroup,
+        elHandle,
+        activeTagInGroup;
+
+      filters.on('click', function(e) {
+        el = $(this);
+        elGroup = el.data('group');
+        elHandle = el.data('handle');
+        activeTagInGroup = $('.active-filter[data-group="'+ elGroup +'"]');
+        // If the tag clicked is not already active and its group contains an active tag, we will swap tag within the group.
+        if ( !el.hasClass('active-filter')  && activeTagInGroup.size() ) {
+          e.preventDefault();
+          location.href = location.href
+            // swap tag
+            .replace(activeTagInGroup.data('handle'), elHandle)
+            // go back to page 1
+            .replace(/(&page=\d+)|(page=\d+&)|(\?page=\d+$)/, '');
+        }
+      });
+    });
+    </script>
+
+  {% endif %}
+{% else %}
+   {% include 'collection-filter-sidebar' %}
+  {% else %}
+    <p>{{ 'collections.sidebar.no_tags' | t }}</p>
+  {% endif %}
+
+<style>
+.collection-group-filter .advanced-filters {
+    margin: 10px 0 30px 12px;
+}
+.collection-group-filter .advanced-filters  li {
+    margin-bottom: 0.25em;
+}
+.collection-group-filter h3.h3.dot_line_title {
+    margin-bottom: 15px;
+    padding: 0;
+  text-align: center;
+  position: relative;
+} 
+.collection-group-filter h3.h3.dot_line_title:after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #979ea3;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}  
+.dot_line_title .box-title {
+    color: #333e48;
+    font-weight: normal;
+    text-transform: capitalize;
+    font-size: 28px;
+    background: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: inline-block;
+}
+.collection-group-filter h3.h3.dot_line_title .box-title {
+  font-size: 18px;
+  font-weight: 400;
+  z-index: 1;
+  position: relative;
+}  
+.advanced-filters a {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+}
+.collection-group-filter .advanced-filters li a {
+  color: #333e48;
+  text-transform: capitalize;
+}  
+.advanced-filters a:before, .advanced-filters a:after {
+    content: '';
+    display: block;
+    position: absolute;
+}  
+.advanced-filters a:before {
+    top: 4px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}  
+.advanced-filters a:after {
+    top: 7px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+.advanced-filters a:hover:after {
+    background-color: #e6e6e6;
+}
+.advanced-filter.active-filter a:hover:after {
+    content: '\78';
+    top: 4px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    font-size: 8px;
+    text-align: center;
+    color: #fff;
+    font-family: "icons";
+    line-height: 12px;
+    speak: none;
+}  
+.advanced-filter.active-filter a:after {
+    background-color: #000;
+}
+</style>
