@@ -14,7 +14,7 @@
 <blockquote><a target="_blank" href="https://custom-tasks.myshopify.com/cart">You can check here</a></blockquote>
  <img src="https://user-images.githubusercontent.com/29298440/158370824-07360393-46fc-4dd2-a3d4-6f738ddd6f08.png">
  <hr>
-<h3>3) ##PRICE##  left for Free Shipping   (Set a Threshold Value in customizer)</h3>
+<h3>3) Set a Threshold Value in customizer for free shipping</h3>
 <p>For offering free shipping to customers, created the settings where the particular threshold value is set up in the backend. So if that particular threshold value is reached then only customers get free shipping otherwise notification messages will be shown to customers.</p>
 <blockquote><a target="_blank" href="https://custom-tasks.myshopify.com/cart">You can check here</a></blockquote>
 <img src="https://user-images.githubusercontent.com/29298440/158371091-623181e3-1536-47a1-af31-3c81ee6d0a26.png">
@@ -24,7 +24,7 @@
 <blockquote><a  target="_blank" href="https://custom-tasks.myshopify.com/products/alba-sofa-set?variant=39317665448067">You can check here</a></blockquote>
 <img src="https://user-images.githubusercontent.com/29298440/158371258-63f1f471-6699-49a0-97a3-2d477a8e3346.png">
 <hr>
-<h3>5) Linked options</h3>
+<h3>5) Developed Linked options for match variants with size and color</h3>
 <p>I have created the settings for the linked option, when we click on the colour variant then it will show the size who are available for particular colour variant.For e.g when we select the yellow colour then it will show the particular size option which is available under the yellow colour variant.</p>
 <blockquote><a target="_blank" href="https://custom-tasks.myshopify.com/products/alba-sofa-set?variant=39317665448067">You can check here</a></blockquote>
 <img src="https://user-images.githubusercontent.com/29298440/158371391-0ccef392-cb6e-460b-9733-69d6d9585fc3.png">
@@ -34,7 +34,7 @@
 <blockquote><a target="_blank" href="https://custom-tasks.myshopify.com/products/alanya-sofa-set">You can check here</a></blockquote>
 <img src="https://user-images.githubusercontent.com/29298440/158371602-3a722371-bba9-48cb-81db-0059763d9c5b.png">
 <hr>
-<h3>7) Checkout after click of agree to privacy terms </h3>
+<h3>7) Checkout after clicking on agree to privacy terms</h3>
 <p>I have made the “agree to privacy terms” condition mandatory on the checkout page. We need to tick on this condition before checkout . Without ticking on this it is not possible toCheckout from cart page.</p>
 <blockquote><a target="_blank" href="https://custom-tasks.myshopify.com/cart">You can check here</a></blockquote>
 <img src="https://user-images.githubusercontent.com/29298440/158371725-4e46e192-507b-435d-9d1c-3002edaad6f7.png">
@@ -47,7 +47,7 @@
 <h3>9) Implement Custom Filters on the Collection Page</h3>
 <p>I have implemented the filters on the collection page based on tags. When we click on the particular filter it shows the products which are provided with the particular tag to the products. We need to assign the tags to the products which we want to showcase in filters.</p>
 <blockquote><a target="_blank" href="https://custom-tasks.myshopify.com/collections/all">You can check here</a></blockquote>
-<img src="https://user-images.githubusercontent.com/29298440/158371931-73fbd269-4754-49fe-a2a1-7afb69dff31c.png">
+<img src="https://user-images.githubusercontent.com/29298440/158744363-964c4a05-64c4-45c9-b698-3baed11c9014.png">
 <hr>
 <h3>10) Overlay effect on homepage</h3>
 <p>I have implemented the overlay effect on the homepage, so the colour of the image changes over the hover click on products.</p>
