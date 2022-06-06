@@ -6,7 +6,6 @@
       {% if settings.sort-dropdown-title2 != blank %}
       <h4><span>{{ settings.sort-dropdown-title2 }}</span></h4> 
       {% endif %}
-      {% comment %}
       <div class="scroll-content">
         {% assign tags = settings.sort_a  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %} 
         <ul>
@@ -20,7 +19,6 @@
           {% endfor %}
         </ul>
       </div>
-      {% endcomment %}
     </li>
     {% endif %}
 
@@ -202,3 +200,12 @@
 
 
 </style>
+<!-- <script>
+$(document).ready(function(){
+$('ul#sort-me > li a').each(function(){
+var value = $(this).text();
+$(this).text(value.replace(/\-/g, " "));
+});
+
+});
+</script> -->
