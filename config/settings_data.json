@@ -10,7 +10,7 @@
     "sort_a": "Armchair,\n1 Seater,\nLeather,\nspo-disabled,\nvia_enabled",
     "sort-dropdown-b-check": true,
     "sort-dropdown-title3": "Filter By Price",
-    "sort_b": "200",
+    "sort_b": "200,\n300",
     "sort-dropdown-c-check": true,
     "sort-dropdown-title4": "",
     "sort-dropdown-d-check": false,
