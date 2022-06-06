@@ -6,6 +6,7 @@
       {% if settings.sort-dropdown-title2 != blank %}
       <h4><span>{{ settings.sort-dropdown-title2 }}</span></h4> 
       {% endif %}
+      {% comment %}
       <div class="scroll-content">
         {% assign tags = settings.sort_a  | replace: ' ,', ',' | replace: ', ', ',' | split: ',' %} 
         <ul>
@@ -19,6 +20,7 @@
           {% endfor %}
         </ul>
       </div>
+      {% endcomment %}
     </li>
     {% endif %}
 
