@@ -1,8 +1,8 @@
-<!-- {% comment %}
+{% comment %}
   A loop to catch and filter out the different tag categories.
   This is mainly for advanced tagging, but will also help us strip
   out any tag categories from our tags (E.g. remove BRAND_ from BRAND_tag)
-{% endcomment %}
+
 {% if template.name == 'collection' and collection.all_tags.size > 0 %}
   {% assign categories = '' %}
   {% for tag in collection.all_tags %}
@@ -11,4 +11,5 @@
     {% endif %}
   {% endfor %}
   {% assign cat_array = categories | split: '|' | uniq %}
-{% endif %} -->
+{% endif %}
+{% endcomment %}
